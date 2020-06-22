@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="RyChart.X"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RyChart"
+             mc:Ignorable="d" x:Name="XPnl" Height="301.5" Width="333">
+
+    <Grid>
+        <Canvas Width="{Binding Width,ElementName=XPnl}" VerticalAlignment="Top">
+            <Rectangle VerticalAlignment="Center" Height="0.6" 
+                    Width="{Binding Width, ElementName=XPnl}" x:Name="rect" Fill="DimGray" Margin="0 0 0 5">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform Angle="180"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+
+            <Grid Width="{Binding Path=Width,ElementName=rect}" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Canvas x:Name="tbContainer" Grid.Row="0" Margin="0 10 0 0" />
+                <Canvas x:Name="canvasChapters" Grid.Column="1" />
+            </Grid>
+
+        </Canvas>
+    </Grid>
+</UserControl>
